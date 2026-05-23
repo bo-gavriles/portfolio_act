@@ -458,30 +458,29 @@
     </div>
 
     <section id="work">
-      <div class="container">
+<div class="container">
         <h2><span class="lang-ru">ключевые работы</span><span class="lang-en">selected works</span></h2>
         <div class="credits-grid">
           <div class="credit-card">
-            <h3>Уругвай · сериал</h3>
+            <h3>Uruguay · TV series</h3>
             <p><span class="lang-ru">Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
           </div>
           <div class="credit-card">
-            <h3>«Тренер» (фильм)</h3>
+            <h3>"The Coach" (film)</h3>
             <p><span class="lang-ru">Массовка, сцены стадиона и атмосферные планы. Работа с главным актёрским составом.</span><span class="lang-en">Crowd / extra — stadium sequences. Work alongside main cast.</span></p>
           </div>
           <div class="credit-card">
-            <h3>Coca-Cola · реклама</h3>
+            <h3>Coca-Cola · commercial</h3>
             <p><span class="lang-ru">Главная роль, Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
           </div>
         </div>
       </div>
-    </section>
 
     <section id="gallery">
       <div class="container">
-        <h2><span class="lang-ru">17 кадров · максимальное разрешение · расширенный формат</span><span class="lang-en">17 frames · full resolution · expanded layout</span></h2>
+        <h2><span class="lang-ru">16 кадров · максимальное разрешение · расширенный формат</span><span class="lang-en">17 frames · full resolution · expanded layout</span></h2>
         <div class="mosaic-grid" id="dynamicGallery"></div>
-        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика с широкими пропорциями — локальные файлы из папки port/ (1..17)</span><span class="lang-en">expanded chessboard mosaic — local images from port/ (1..17)</span></p>
+        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru"></span><span class="lang-en"></span></p>
       </div>
     </section>
 
@@ -539,9 +538,9 @@
 
   <script>
     (function(){
-      // === EXPANDED GALLERY: загружаем 17 изображений из папки port/ ===
+      // === EXPANDED GALLERY: загружаем 16 изображений из папки port/ ===
       // Поддержка форматов: 11.jpeg, 13.jpeg — остальные .png (в соответствии с заданием)
-      const totalPhotos = 17;
+      const totalPhotos = 16;
       const localImages = [];
       
       for (let i = 1; i <= totalPhotos; i++) {
@@ -607,7 +606,7 @@
           galleryContainer.appendChild(mosaicDiv);
         });
         
-        // добавим обновление счетчика, если потребуется (уже 17)
+        // добавим обновление счетчика, если потребуется (уже 16)
         const photoSpan = document.getElementById('photoCountDisplay');
         if (photoSpan) photoSpan.innerText = totalPhotos.toString();
       }
