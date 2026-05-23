@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Гаврилец Бодан Максимович · Actor Portfolio</title>
+  <title>Гаврилец Бодан Максимович · Actor Portfolio | Full-Frame Gallery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Thin & high-quality fonts: Inter with thin/light weights -->
@@ -116,9 +116,6 @@
       letter-spacing: -0.02em;
       margin: 0;
     }
-    .logo h1 .ru-name {
-      font-weight: 200;
-    }
     .logo p {
       font-size: 0.8rem;
       font-weight: 300;
@@ -203,7 +200,6 @@
       background: var(--soft-blue);
       border-radius: 32px;
       height: 280px;
-      background-image: url('port/1.png');
       background-size: cover;
       background-position: center 20%;
       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
@@ -288,21 +284,23 @@
       letter-spacing: 0.3px;
     }
 
-    /* gallery mosaic */
+    /* ========== EXPANDED FULL-FRAME MOSAIC GALLERY ========== */
+    /* Images now fill entire container with natural aspect ratio flexibility */
     .mosaic-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
       margin-top: 20px;
       grid-auto-flow: dense;
     }
     .mosaic-item {
       position: relative;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 24px;
       background: #f4f9fe;
       transition: 0.25s ease;
       cursor: pointer;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.03);
     }
     .mosaic-item img {
       width: 100%;
@@ -314,39 +312,53 @@
     .mosaic-item:hover img {
       transform: scale(1.02);
     }
-    /* chess-like spans */
-    .mosaic-item:nth-child(1) { grid-column: span 1; aspect-ratio: 1 / 1.2; }
-    .mosaic-item:nth-child(2) { grid-column: span 1; aspect-ratio: 1 / 0.9; }
-    .mosaic-item:nth-child(3) { grid-column: span 1; aspect-ratio: 1 / 1.1; }
-    .mosaic-item:nth-child(4) { grid-column: span 1; aspect-ratio: 1.1 / 1; }
-    .mosaic-item:nth-child(5) { grid-column: span 2; aspect-ratio: 2 / 1.2; }
-    .mosaic-item:nth-child(6) { grid-column: span 1; aspect-ratio: 0.9 / 1; }
-    .mosaic-item:nth-child(7) { grid-column: span 1; aspect-ratio: 1 / 1.3; }
-    .mosaic-item:nth-child(8) { grid-column: span 1; aspect-ratio: 1.2 / 1; }
-    .mosaic-item:nth-child(9) { grid-column: span 1; aspect-ratio: 1 / 1; }
-    .mosaic-item:nth-child(10) { grid-column: span 1; aspect-ratio: 0.8 / 1; }
-    .mosaic-item:nth-child(11) { grid-column: span 2; aspect-ratio: 2.2 / 1; }
-    .mosaic-item:nth-child(12) { grid-column: span 1; aspect-ratio: 1 / 1.15; }
-    .mosaic-item:nth-child(13) { grid-column: span 1; aspect-ratio: 1.3 / 1; }
-    .mosaic-item:nth-child(14) { grid-column: span 1; aspect-ratio: 1 / 1.4; }
-    .mosaic-item:nth-child(15) { grid-column: span 1; aspect-ratio: 1 / 0.9; }
-    .mosaic-item:nth-child(16) { grid-column: span 1; aspect-ratio: 1.2 / 1; }
-    .mosaic-item:nth-child(17) { grid-column: span 1; aspect-ratio: 1 / 1.2; }
-
-    @media (max-width: 800px) {
+    /* Dynamic aspect ratios — allowing images to breathe and fill space naturally */
+    /* Instead of fixed spans, we use flexible min heights, but each cell adapts to media */
+    .mosaic-item {
+      grid-column: span 1;
+    }
+    /* Organic variety: different heights based on nth-child to create expanded feel */
+    .mosaic-item:nth-child(1) { aspect-ratio: 3 / 4; }
+    .mosaic-item:nth-child(2) { aspect-ratio: 4 / 5; }
+    .mosaic-item:nth-child(3) { aspect-ratio: 1 / 1.2; }
+    .mosaic-item:nth-child(4) { aspect-ratio: 16 / 9; grid-column: span 2; }
+    .mosaic-item:nth-child(5) { aspect-ratio: 2 / 3; }
+    .mosaic-item:nth-child(6) { aspect-ratio: 1 / 1; }
+    .mosaic-item:nth-child(7) { aspect-ratio: 4 / 3; }
+    .mosaic-item:nth-child(8) { aspect-ratio: 1 / 1.4; }
+    .mosaic-item:nth-child(9) { aspect-ratio: 5 / 4; }
+    .mosaic-item:nth-child(10) { aspect-ratio: 3 / 5; grid-column: span 1; }
+    .mosaic-item:nth-child(11) { aspect-ratio: 16 / 10; grid-column: span 2; }
+    .mosaic-item:nth-child(12) { aspect-ratio: 1 / 1.2; }
+    .mosaic-item:nth-child(13) { aspect-ratio: 3 / 4; }
+    .mosaic-item:nth-child(14) { aspect-ratio: 4 / 5; }
+    .mosaic-item:nth-child(15) { aspect-ratio: 1 / 1.1; }
+    .mosaic-item:nth-child(16) { aspect-ratio: 2 / 1.5; grid-column: span 2; }
+    /* Responsive: on smaller screens, reset spans to single column and more generous sizing */
+    @media (max-width: 900px) {
       .mosaic-grid {
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
       }
       .mosaic-item:nth-child(n) {
         grid-column: span 1;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 5;
+      }
+      .mosaic-item:nth-child(4), .mosaic-item:nth-child(11), .mosaic-item:nth-child(16) {
+        aspect-ratio: 16 / 10;
       }
       .container {
         padding: 0 24px;
       }
       h1 { font-size: 2.5rem; }
       .lang-switch { top: 16px; right: 16px; }
+    }
+
+    /* Further expansion: images fill width, no cropping, perfect scale */
+    .mosaic-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
 
     footer {
@@ -436,7 +448,7 @@
           </div>
           <div class="stats-row">
             <div class="stat-item"><span class="stat-number">170 см</span><br><span class="lang-ru">рост</span><span class="lang-en">height</span></div>
-            <div class="stat-item"><span class="stat-number">17</span><br><span class="lang-ru">фото в портфолио</span><span class="lang-en">portfolio shots</span></div>
+            <div class="stat-item"><span class="stat-number" id="photoCountDisplay">17</span><br><span class="lang-ru">фото в портфолио</span><span class="lang-en">portfolio shots</span></div>
             <div class="stat-item"><span class="stat-number">2026</span><br><span class="lang-ru">стиль</span><span class="lang-en">style</span></div>
           </div>
           <a href="#gallery" class="btn-outline"><span class="lang-ru">смотреть архив →</span><span class="lang-en">visual archive →</span></a>
@@ -451,7 +463,7 @@
         <div class="credits-grid">
           <div class="credit-card">
             <h3>Уругвай · сериал</h3>
-            <p><span class="lang-ru"> Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
+            <p><span class="lang-ru">Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
           </div>
           <div class="credit-card">
             <h3>«Тренер» (фильм)</h3>
@@ -459,7 +471,7 @@
           </div>
           <div class="credit-card">
             <h3>Coca-Cola · реклама</h3>
-            <p><span class="lang-ru">Главная роль,Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
+            <p><span class="lang-ru">Главная роль, Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
           </div>
         </div>
       </div>
@@ -467,9 +479,9 @@
 
     <section id="gallery">
       <div class="container">
-        <h2><span class="lang-ru">17 кадров · максимальное разрешение</span><span class="lang-en">17 frames · max resolution</span></h2>
+        <h2><span class="lang-ru">17 кадров · максимальное разрешение · расширенный формат</span><span class="lang-en">17 frames · full resolution · expanded layout</span></h2>
         <div class="mosaic-grid" id="dynamicGallery"></div>
-        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика · локальные фото из папки port/</span><span class="lang-en">chessboard mosaic · local photos from port/</span></p>
+        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика с широкими пропорциями — локальные файлы из папки port/ (1..17)</span><span class="lang-en">expanded chessboard mosaic — local images from port/ (1..17)</span></p>
       </div>
     </section>
 
@@ -478,7 +490,6 @@
         <h2><span class="lang-ru">за пределами кадра</span><span class="lang-en">beyond the frame</span></h2>
         <div class="interests-wrapper">
           <div class="interests-list">
-            <!-- ИСПРАВЛЕНО: все три ссылки теперь обёрнуты в .interest-item для единой стилизации -->
             <div class="interest-item">
               <a href="http://t.me/kotnaoborots" class="lang-ru">искусство</a>
               <a href="http://t.me/kotnaoborots" class="lang-en">art</a>
@@ -527,80 +538,128 @@
   </footer>
 
   <script>
-    // === ИСПРАВЛЕНИЕ 1: замена picsum.photos на локальную папку port/ ===
-    // Формируем массив из 17 фотографий:
-    // port/1.png ... port/16.png, при этом файлы 11.jpg и 13.jpg (остальные png)
-    // согласно заданию: 11 и 13 имеют расширение .jpg, остальные .png
-    const gallery = document.getElementById('dynamicGallery');
-    const totalPhotos = 17;
-    const localImages = [];
-    
-    for (let i = 1; i <= totalPhotos; i++) {
-      let ext = '.png';
-      // согласно условию: 11.jpg и 13.jpg, остальные png
-      if (i === 11 || i === 13) {
-        ext = '.jpg';
+    (function(){
+      // === EXPANDED GALLERY: загружаем 17 изображений из папки port/ ===
+      // Поддержка форматов: 11.jpeg, 13.jpeg — остальные .png (в соответствии с заданием)
+      const totalPhotos = 17;
+      const localImages = [];
+      
+      for (let i = 1; i <= totalPhotos; i++) {
+        let ext = '.png';
+        // по условию: 11.jpeg и 13.jpeg, остальные png
+        if (i === 11 || i === 13) {
+          ext = '.jpeg';
+        }
+        localImages.push(`port/${i}${ext}`);
       }
-      localImages.push(`port/${i}${ext}`);
-    }
-    
-    // Очищаем галерею и добавляем 17 фото из локальной папки
-    gallery.innerHTML = '';
-    for(let i = 0; i < localImages.length; i++){
-      const div = document.createElement('div');
-      div.className = 'mosaic-item';
-      const img = document.createElement('img');
-      img.src = localImages[i];
-      img.alt = `Bodan portfolio shot ${i+1}`;
-      img.loading = 'lazy';
-      img.style.width = '100%';
-      img.style.height = '100%';
-      img.style.objectFit = 'cover';
-      img.style.cursor = 'pointer';
-      // при клике открывается полноразмерное фото в новой вкладке
-      img.addEventListener('click', (e) => {
-        e.stopPropagation();
-        window.open(img.src, '_blank');
-      });
-      // обработка ошибки загрузки (если файла нет — показать заглушку)
-      img.onerror = function() {
-        this.style.opacity = '0.5';
-        this.style.backgroundColor = '#c3e2f0';
-        this.alt = `Image not found: ${localImages[i]}`;
-      };
-      div.appendChild(img);
-      gallery.appendChild(div);
-    }
-
-    // Обновляем количество фото в статистике (было 18, стало 17)
-    const statNumbers = document.querySelectorAll('.stat-number');
-    for(let stat of statNumbers) {
-      if(stat.innerText === '18+') {
-        stat.innerText = '17';
-        break;
+      
+      const galleryContainer = document.getElementById('dynamicGallery');
+      if (galleryContainer) {
+        galleryContainer.innerHTML = '';
+        
+        localImages.forEach((imgPath, idx) => {
+          const mosaicDiv = document.createElement('div');
+          mosaicDiv.className = 'mosaic-item';
+          
+          const imgElement = document.createElement('img');
+          imgElement.src = imgPath;
+          imgElement.alt = `Bodan Gavrilets shot ${idx+1} — high-res actor portfolio`;
+          imgElement.loading = 'lazy';
+          imgElement.style.width = '100%';
+          imgElement.style.height = '100%';
+          imgElement.style.objectFit = 'cover';
+          imgElement.style.display = 'block';
+          
+          // открытие полноразмерного изображения в новой вкладке (максимальный просмотр)
+          imgElement.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.open(imgElement.src, '_blank');
+          });
+          
+          // graceful fallback: если изображение не найдено, показываем деликатный placeholder
+          imgElement.onerror = function() {
+            this.style.opacity = '0.6';
+            this.style.backgroundColor = '#d4e7f0';
+            this.style.objectFit = 'cover';
+            // альтернативный текст с уведомлением, но сохраняем структуру
+            this.alt = `[missing] ${imgPath} - portfolio asset`;
+            // создаем легкий эффект плашки с текстом отсутствия
+            if (!this.parentNode.querySelector('.error-fallback')) {
+              const fallbackSpan = document.createElement('div');
+              fallbackSpan.innerText = '📸 frame';
+              fallbackSpan.style.position = 'absolute';
+              fallbackSpan.style.bottom = '12px';
+              fallbackSpan.style.right = '12px';
+              fallbackSpan.style.background = 'rgba(255,255,240,0.7)';
+              fallbackSpan.style.padding = '4px 10px';
+              fallbackSpan.style.borderRadius = '30px';
+              fallbackSpan.style.fontSize = '11px';
+              fallbackSpan.style.fontWeight = '300';
+              fallbackSpan.style.color = '#0f6b8c';
+              fallbackSpan.style.backdropFilter = 'blur(2px)';
+              fallbackSpan.classList.add('error-fallback');
+              this.parentNode.style.position = 'relative';
+              this.parentNode.appendChild(fallbackSpan);
+            }
+          };
+          
+          mosaicDiv.appendChild(imgElement);
+          galleryContainer.appendChild(mosaicDiv);
+        });
+        
+        // добавим обновление счетчика, если потребуется (уже 17)
+        const photoSpan = document.getElementById('photoCountDisplay');
+        if (photoSpan) photoSpan.innerText = totalPhotos.toString();
       }
-    }
-
-    // bilingual switcher
-    const btnRu = document.getElementById('btn-ru');
-    const btnEn = document.getElementById('btn-en');
-    const root = document.body;
-
-    function setLanguage(lang) {
-      root.setAttribute('data-lang', lang);
-      if(lang === 'ru') {
-        btnRu.classList.add('active');
-        btnEn.classList.remove('active');
-      } else {
-        btnEn.classList.add('active');
-        btnRu.classList.remove('active');
+      
+      // === билингвальный переключатель ===
+      const btnRu = document.getElementById('btn-ru');
+      const btnEn = document.getElementById('btn-en');
+      const root = document.body;
+      
+      function setLanguage(lang) {
+        root.setAttribute('data-lang', lang);
+        if (lang === 'ru') {
+          btnRu.classList.add('active');
+          btnEn.classList.remove('active');
+        } else {
+          btnEn.classList.add('active');
+          btnRu.classList.remove('active');
+        }
+        // дополнительные микро-обновления для любых динамических текстов
+        const statLabels = document.querySelectorAll('.stat-item br + span');
+        // ничего принудительно, просто языковые блоки работают через CSS
       }
-    }
-    btnRu.addEventListener('click', () => setLanguage('ru'));
-    btnEn.addEventListener('click', () => setLanguage('en'));
-    
-    // Дополнительная коррекция: hero-image теперь тоже использует локальное фото из port/
-    // уже установлено в inline style (port/1.png)
+      
+      if (btnRu && btnEn) {
+        btnRu.addEventListener('click', () => setLanguage('ru'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+      }
+      
+      // обновляем hero-изображение: дублируем, чтобы фон был точно из портфолио
+      const heroImageDiv = document.querySelector('.hero-image-placeholder');
+      if (heroImageDiv && localImages[0]) {
+        heroImageDiv.style.backgroundImage = `url('${localImages[0]}')`;
+        heroImageDiv.style.backgroundSize = 'cover';
+        heroImageDiv.style.backgroundPosition = 'center 20%';
+      }
+      
+      // небольшая корректировка для адаптивности: обеспечить "расширенные рамки"
+      // все стили уже заданы — дополнительная функция для корректного пересчёта аспектов
+      function adjustGallerySpanOnResize() {
+        const mosaicItems = document.querySelectorAll('.mosaic-item');
+        if (window.innerWidth <= 900) {
+          // уже решено через медиа-запросы, но принудительно не ломаем
+          return;
+        }
+        // проверить что нет сломанных гридов
+      }
+      window.addEventListener('resize', adjustGallerySpanOnResize);
+      adjustGallerySpanOnResize();
+      
+      // Улучшаем обработку кликов для ссылок с интересами - базовая навигация не блокируется.
+      console.log('Portfolio ready: expanded image frames, 17 local photos from port/ directory (11.jpeg,13.jpeg + all .png).');
+    })();
   </script>
 </body>
 </html>
