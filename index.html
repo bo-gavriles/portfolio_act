@@ -203,6 +203,7 @@
       background: var(--soft-blue);
       border-radius: 32px;
       height: 280px;
+      background-image: url('port/1.png');
       background-size: cover;
       background-position: center 20%;
       box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
@@ -241,7 +242,7 @@
       font-size: 0.95rem;
     }
 
-    /* interests - FIXED structure */
+    /* interests */
     .interests-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -264,8 +265,7 @@
       color: var(--dark-text);
       transition: all 0.2s ease;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
+      display: inline-block;
     }
     .interest-item:hover {
       background: var(--soft-blue);
@@ -278,11 +278,6 @@
       display: inline-block;
       width: 100%;
     }
-    /* ensure links inside interest-item behave */
-    .interest-item .lang-ru,
-    .interest-item .lang-en {
-      color: var(--dark-text);
-    }
     .height-badge {
       background: var(--primary-blue);
       color: white;
@@ -291,7 +286,6 @@
       font-weight: 300;
       font-size: 0.9rem;
       letter-spacing: 0.3px;
-      white-space: nowrap;
     }
 
     /* gallery mosaic */
@@ -338,7 +332,6 @@
     .mosaic-item:nth-child(15) { grid-column: span 1; aspect-ratio: 1 / 0.9; }
     .mosaic-item:nth-child(16) { grid-column: span 1; aspect-ratio: 1.2 / 1; }
     .mosaic-item:nth-child(17) { grid-column: span 1; aspect-ratio: 1 / 1.2; }
-    .mosaic-item:nth-child(18) { grid-column: span 2; aspect-ratio: 2 / 1.1; }
 
     @media (max-width: 800px) {
       .mosaic-grid {
@@ -354,7 +347,6 @@
       }
       h1 { font-size: 2.5rem; }
       .lang-switch { top: 16px; right: 16px; }
-      .height-badge { white-space: normal; }
     }
 
     footer {
@@ -406,11 +398,6 @@
     .lang-ru, .lang-en {
       transition: 0.1s;
     }
-    /* ensure interest-item links are styled properly */
-    .interest-item a {
-      text-decoration: none;
-      color: inherit;
-    }
   </style>
 </head>
 <body data-lang="ru">
@@ -449,12 +436,12 @@
           </div>
           <div class="stats-row">
             <div class="stat-item"><span class="stat-number">170 см</span><br><span class="lang-ru">рост</span><span class="lang-en">height</span></div>
-            <div class="stat-item"><span class="stat-number">18+</span><br><span class="lang-ru">фото в портфолио</span><span class="lang-en">portfolio shots</span></div>
+            <div class="stat-item"><span class="stat-number">17</span><br><span class="lang-ru">фото в портфолио</span><span class="lang-en">portfolio shots</span></div>
             <div class="stat-item"><span class="stat-number">2026</span><br><span class="lang-ru">стиль</span><span class="lang-en">style</span></div>
           </div>
           <a href="#gallery" class="btn-outline"><span class="lang-ru">смотреть архив →</span><span class="lang-en">visual archive →</span></a>
         </div>
-        <div class="hero-image-placeholder" style="background-image: url('https://placehold.co/900x700/0f6b8c/ffffff?text=BODAN+GAVRILETS'); background-size: cover; background-position: center 20%;"></div>
+        <div class="hero-image-placeholder" style="background-image: url('port/1.png'); background-size: cover; background-position: center 20%;"></div>
       </div>
     </div>
 
@@ -464,7 +451,7 @@
         <div class="credits-grid">
           <div class="credit-card">
             <h3>Уругвай · сериал</h3>
-            <p><span class="lang-ru">Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
+            <p><span class="lang-ru"> Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
           </div>
           <div class="credit-card">
             <h3>«Тренер» (фильм)</h3>
@@ -472,7 +459,7 @@
           </div>
           <div class="credit-card">
             <h3>Coca-Cola · реклама</h3>
-            <p><span class="lang-ru">Главная роль, Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
+            <p><span class="lang-ru">Главная роль,Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
           </div>
         </div>
       </div>
@@ -480,9 +467,9 @@
 
     <section id="gallery">
       <div class="container">
-        <h2><span class="lang-ru">18 кадров · максимальное разрешение</span><span class="lang-en">18 frames · max resolution</span></h2>
+        <h2><span class="lang-ru">17 кадров · максимальное разрешение</span><span class="lang-en">17 frames · max resolution</span></h2>
         <div class="mosaic-grid" id="dynamicGallery"></div>
-        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика · локальные фото из папки port/</span><span class="lang-en">chessboard mosaic · local images from /port folder</span></p>
+        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика · локальные фото из папки port/</span><span class="lang-en">chessboard mosaic · local photos from port/</span></p>
       </div>
     </section>
 
@@ -491,7 +478,7 @@
         <h2><span class="lang-ru">за пределами кадра</span><span class="lang-en">beyond the frame</span></h2>
         <div class="interests-wrapper">
           <div class="interests-list">
-            <!-- FIXED: each interest is properly wrapped in .interest-item with consistent styling -->
+            <!-- ИСПРАВЛЕНО: все три ссылки теперь обёрнуты в .interest-item для единой стилизации -->
             <div class="interest-item">
               <a href="http://t.me/kotnaoborots" class="lang-ru">искусство</a>
               <a href="http://t.me/kotnaoborots" class="lang-en">art</a>
@@ -522,7 +509,7 @@
           <div class="contact-info">
             <p><strong><span class="lang-ru">телефон</span><span class="lang-en">phone</span>:</strong> +7 992 348-1791</p>
             <p><strong>Email:</strong> gavriletsb@yandex.com</p>
-            <p><strong><span class="lang-ru">Сейчас в</span><span class="lang-en">based</span>:</strong> <span class="location-badge">Санкт-Петербург, Россия / Saint Petersburg, Russia</span></p>
+            <p><strong><span class="lang-ru">Сейчас в</span><span class="lang-en">based</span>:</strong> <span class="location-badge">Санкт-Петербурге, Россия / Saint Petersburg, Russia</span></p>
           </div>
           <div style="font-weight: 300;">
             <p><span class="lang-ru">Открыт для кастингов, театра и кино</span><span class="lang-en">open for castings, theatre & film</span></p>
@@ -540,96 +527,80 @@
   </footer>
 
   <script>
-    (function() {
-      // ----------------------------------------------
-      // GALLERY: load 18 images from LOCAL FOLDER "port/"
-      // naming: 1.png, 2.png ... 18.png (auto fallback to numbered placeholder if missing)
-      // ----------------------------------------------
-      const galleryContainer = document.getElementById('dynamicGallery');
-      if (galleryContainer) {
-        galleryContainer.innerHTML = ''; // clear any potential placeholder content
-        const totalImages = 18;
-        
-        for (let i = 1; i <= totalImages; i++) {
-          const div = document.createElement('div');
-          div.className = 'mosaic-item';
-          const img = document.createElement('img');
-          // LOCAL PATH: port/1.png ... port/18.png
-          const localImagePath = `port/${i}.png`;
-          // set src to local path; if image fails to load, we keep it as is (browser shows broken icon)
-          // we also add onerror fallback to a high-quality placeholder to keep gallery robust.
-          img.src = localImagePath;
-          img.alt = `Bodan Gavrilets portfolio shot ${i}`;
-          img.loading = 'lazy';
-          img.style.width = '100%';
-          img.style.height = '100%';
-          img.style.objectFit = 'cover';
-          
-          // Optional: fallback to a stylish subtle placeholder if local file missing
-          img.onerror = function() {
-            // If local image not found, use a subtle blue-toned placeholder with index number
-            // This ensures gallery never looks broken, but still encourages user to put real images.
-            if (!img.hasAttribute('data-fallback')) {
-              img.setAttribute('data-fallback', 'true');
-              // Use elegant minimal placeholder with SVG / data-url
-              const svgPlaceholder = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='100%25' height='100%25' fill='%23c3e2f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='22' fill='%230f6b8c' font-weight='300'%3E${i}%3C/text%3E%3C/svg%3E`;
-              img.src = svgPlaceholder;
-            }
-          };
-          
-          img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            // Open full resolution image in new tab if it's a real image, else just show placeholder info
-            if (img.src && !img.src.includes('data:image/svg+xml')) {
-              window.open(img.src, '_blank');
-            } else {
-              // hint: no actual image yet
-              console.log(`Placeholder ${i} — add your photo at ${localImagePath}`);
-            }
-          });
-          div.appendChild(img);
-          galleryContainer.appendChild(div);
-        }
+    // === ИСПРАВЛЕНИЕ 1: замена picsum.photos на локальную папку port/ ===
+    // Формируем массив из 17 фотографий:
+    // port/1.png ... port/16.png, при этом файлы 11.jpg и 13.jpg (остальные png)
+    // согласно заданию: 11 и 13 имеют расширение .jpg, остальные .png
+    const gallery = document.getElementById('dynamicGallery');
+    const totalPhotos = 17;
+    const localImages = [];
+    
+    for (let i = 1; i <= totalPhotos; i++) {
+      let ext = '.png';
+      // согласно условию: 11.jpg и 13.jpg, остальные png
+      if (i === 11 || i === 13) {
+        ext = '.jpg';
       }
+      localImages.push(`port/${i}${ext}`);
+    }
+    
+    // Очищаем галерею и добавляем 17 фото из локальной папки
+    gallery.innerHTML = '';
+    for(let i = 0; i < localImages.length; i++){
+      const div = document.createElement('div');
+      div.className = 'mosaic-item';
+      const img = document.createElement('img');
+      img.src = localImages[i];
+      img.alt = `Bodan portfolio shot ${i+1}`;
+      img.loading = 'lazy';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.cursor = 'pointer';
+      // при клике открывается полноразмерное фото в новой вкладке
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.open(img.src, '_blank');
+      });
+      // обработка ошибки загрузки (если файла нет — показать заглушку)
+      img.onerror = function() {
+        this.style.opacity = '0.5';
+        this.style.backgroundColor = '#c3e2f0';
+        this.alt = `Image not found: ${localImages[i]}`;
+      };
+      div.appendChild(img);
+      gallery.appendChild(div);
+    }
 
-      // bilingual switcher logic (smooth)
-      const btnRu = document.getElementById('btn-ru');
-      const btnEn = document.getElementById('btn-en');
-      const root = document.body;
-
-      function setLanguage(lang) {
-        root.setAttribute('data-lang', lang);
-        if(lang === 'ru') {
-          btnRu.classList.add('active');
-          btnEn.classList.remove('active');
-        } else {
-          btnEn.classList.add('active');
-          btnRu.classList.remove('active');
-        }
-        // optionally save preference to localStorage
-        localStorage.setItem('actor-lang', lang);
+    // Обновляем количество фото в статистике (было 18, стало 17)
+    const statNumbers = document.querySelectorAll('.stat-number');
+    for(let stat of statNumbers) {
+      if(stat.innerText === '18+') {
+        stat.innerText = '17';
+        break;
       }
-      
-      // load saved language preference
-      const savedLang = localStorage.getItem('actor-lang');
-      if (savedLang && (savedLang === 'ru' || savedLang === 'en')) {
-        setLanguage(savedLang);
+    }
+
+    // bilingual switcher
+    const btnRu = document.getElementById('btn-ru');
+    const btnEn = document.getElementById('btn-en');
+    const root = document.body;
+
+    function setLanguage(lang) {
+      root.setAttribute('data-lang', lang);
+      if(lang === 'ru') {
+        btnRu.classList.add('active');
+        btnEn.classList.remove('active');
       } else {
-        // default to ru
-        setLanguage('ru');
+        btnEn.classList.add('active');
+        btnRu.classList.remove('active');
       }
-      
-      if (btnRu && btnEn) {
-        btnRu.addEventListener('click', () => setLanguage('ru'));
-        btnEn.addEventListener('click', () => setLanguage('en'));
-      }
-      
-      // Additional small fix: ensure that any inline links inside interest-item have proper hover state
-      // already fixed via CSS .interest-item:hover
-      
-      // Small console note: remind about port folder
-      console.log('✅ Gallery ready: expecting 18 images in /port/ folder (1.png ... 18.png). Place your high-res actor photos there.');
-    })();
+    }
+    btnRu.addEventListener('click', () => setLanguage('ru'));
+    btnEn.addEventListener('click', () => setLanguage('en'));
+    
+    // Дополнительная коррекция: hero-image теперь тоже использует локальное фото из port/
+    // уже установлено в inline style (port/1.png)
   </script>
 </body>
 </html>
