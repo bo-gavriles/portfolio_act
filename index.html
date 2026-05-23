@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Гаврилец Бодан Максимович · Actor Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Thin & high-quality fonts: Inter with thin/light weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0b2b3b;
+      line-height: 1.3;
+      scroll-behavior: smooth;
+    }
+
+    /* blue-white palette: fresh blue, icy accents */
+    :root {
+      --primary-blue: #0f6b8c;
+      --soft-blue: #c3e2f0;
+      --pale-blue: #e9f2f9;
+      --accent-glow: #4bb4e6;
+      --pure-white: #ffffff;
+      --dark-text: #102b33;
+      --light-text: #3f5e6b;
+    }
+
+    /* thin typography */
+    h1, h2, h3, .nav-links, .hero-tagline, .stat-label {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 200;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 250;
+      letter-spacing: -0.01em;
+      border-left: 4px solid var(--primary-blue);
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* language switch */
+    .lang-switch {
+      position: fixed;
+      top: 24px;
+      right: 40px;
+      z-index: 100;
+      background: var(--pure-white);
+      border-radius: 40px;
+      padding: 6px 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid var(--soft-blue);
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+    .lang-switch button {
+      background: transparent;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.2s;
+      color: var(--light-text);
+    }
+    .lang-switch button.active {
+      background: var(--primary-blue);
+      color: white;
+    }
+    .lang-switch button:not(.active):hover {
+      background: var(--soft-blue);
+    }
+
+    /* header & navigation */
+    header {
+      padding: 32px 0 20px;
+      border-bottom: 1px solid var(--soft-blue);
+      background: var(--pure-white);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .logo h1 .ru-name {
+      font-weight: 200;
+    }
+    .logo p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--primary-blue);
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 350;
+      font-size: 0.95rem;
+      color: var(--dark-text);
+      transition: color 0.2s;
+      letter-spacing: 0.2px;
+    }
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* hero */
+    .hero {
+      padding: 70px 0 50px;
+      background: linear-gradient(120deg, var(--pale-blue) 0%, #ffffff 80%);
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-text {
+      flex: 1.2;
+    }
+    .role-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      background: rgba(15, 107, 140, 0.1);
+      padding: 6px 14px;
+      border-radius: 40px;
+      color: var(--primary-blue);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.4px;
+    }
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 span {
+      font-weight: 180;
+      color: var(--primary-blue);
+    }
+    .bio-short {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--light-text);
+      margin: 1.2rem 0 1rem;
+      max-width: 90%;
+      line-height: 1.4;
+    }
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    .stat-item {
+      font-weight: 280;
+    }
+    .stat-number {
+      font-size: 1.7rem;
+      font-weight: 250;
+      color: var(--primary-blue);
+    }
+    .hero-image-placeholder {
+      flex: 0.8;
+      background: var(--soft-blue);
+      border-radius: 32px;
+      height: 280px;
+      background-size: cover;
+      background-position: center 20%;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--soft-blue);
+    }
+
+    /* credits */
+    .credits-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .credit-card {
+      background: var(--pale-blue);
+      border-radius: 24px;
+      padding: 28px 24px;
+      flex: 1;
+      min-width: 200px;
+      transition: 0.2s;
+      border: 1px solid rgba(15,107,140,0.15);
+    }
+    .credit-card h3 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--primary-blue);
+    }
+    .credit-card p {
+      font-weight: 300;
+      color: var(--light-text);
+      font-size: 0.95rem;
+    }
+
+    /* interests - FIXED structure */
+    .interests-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .interests-list {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .interest-item {
+      background: var(--pure-white);
+      border: 1px solid var(--soft-blue);
+      border-radius: 60px;
+      padding: 10px 26px;
+      font-weight: 350;
+      font-size: 1rem;
+      color: var(--dark-text);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    .interest-item:hover {
+      background: var(--soft-blue);
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+    .interest-item a {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+      width: 100%;
+    }
+    /* ensure links inside interest-item behave */
+    .interest-item .lang-ru,
+    .interest-item .lang-en {
+      color: var(--dark-text);
+    }
+    .height-badge {
+      background: var(--primary-blue);
+      color: white;
+      border-radius: 60px;
+      padding: 10px 30px;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* gallery mosaic */
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+      grid-auto-flow: dense;
+    }
+    .mosaic-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f4f9fe;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+    .mosaic-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .mosaic-item:hover img {
+      transform: scale(1.02);
+    }
+    /* chess-like spans */
+    .mosaic-item:nth-child(1) { grid-column: span 1; aspect-ratio: 1 / 1.2; }
+    .mosaic-item:nth-child(2) { grid-column: span 1; aspect-ratio: 1 / 0.9; }
+    .mosaic-item:nth-child(3) { grid-column: span 1; aspect-ratio: 1 / 1.1; }
+    .mosaic-item:nth-child(4) { grid-column: span 1; aspect-ratio: 1.1 / 1; }
+    .mosaic-item:nth-child(5) { grid-column: span 2; aspect-ratio: 2 / 1.2; }
+    .mosaic-item:nth-child(6) { grid-column: span 1; aspect-ratio: 0.9 / 1; }
+    .mosaic-item:nth-child(7) { grid-column: span 1; aspect-ratio: 1 / 1.3; }
+    .mosaic-item:nth-child(8) { grid-column: span 1; aspect-ratio: 1.2 / 1; }
+    .mosaic-item:nth-child(9) { grid-column: span 1; aspect-ratio: 1 / 1; }
+    .mosaic-item:nth-child(10) { grid-column: span 1; aspect-ratio: 0.8 / 1; }
+    .mosaic-item:nth-child(11) { grid-column: span 2; aspect-ratio: 2.2 / 1; }
+    .mosaic-item:nth-child(12) { grid-column: span 1; aspect-ratio: 1 / 1.15; }
+    .mosaic-item:nth-child(13) { grid-column: span 1; aspect-ratio: 1.3 / 1; }
+    .mosaic-item:nth-child(14) { grid-column: span 1; aspect-ratio: 1 / 1.4; }
+    .mosaic-item:nth-child(15) { grid-column: span 1; aspect-ratio: 1 / 0.9; }
+    .mosaic-item:nth-child(16) { grid-column: span 1; aspect-ratio: 1.2 / 1; }
+    .mosaic-item:nth-child(17) { grid-column: span 1; aspect-ratio: 1 / 1.2; }
+    .mosaic-item:nth-child(18) { grid-column: span 2; aspect-ratio: 2 / 1.1; }
+
+    @media (max-width: 800px) {
+      .mosaic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 12px;
+      }
+      .mosaic-item:nth-child(n) {
+        grid-column: span 1;
+        aspect-ratio: 1 / 1;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      h1 { font-size: 2.5rem; }
+      .lang-switch { top: 16px; right: 16px; }
+      .height-badge { white-space: normal; }
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-weight: 300;
+      font-size: 0.8rem;
+      color: var(--light-text);
+      background: var(--pale-blue);
+    }
+    .btn-outline {
+      border: 1px solid var(--primary-blue);
+      background: transparent;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 350;
+      color: var(--primary-blue);
+      transition: 0.2s;
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: var(--primary-blue);
+      color: white;
+    }
+    .contact-block {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      background: var(--pale-blue);
+      padding: 32px;
+      border-radius: 28px;
+      margin-top: 20px;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      font-weight: 300;
+    }
+    .location-badge {
+      font-weight: 400;
+      color: var(--primary-blue);
+    }
+    [data-lang="ru"] .lang-en,
+    [data-lang="en"] .lang-ru {
+      display: none;
+    }
+    .lang-ru, .lang-en {
+      transition: 0.1s;
+    }
+    /* ensure interest-item links are styled properly */
+    .interest-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body data-lang="ru">
+  <div class="lang-switch">
+    <button id="btn-ru" class="active">РУС</button>
+    <button id="btn-en">ENG</button>
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <h1>
+          <span class="lang-ru">Гаврилец Бодан Максимович</span>
+          <span class="lang-en">Bodan Maksymovych Gavrilets</span>
+        </h1>
+        <p><span class="lang-ru">актёр · главные роли и массовка</span><span class="lang-en">actor · lead & ensemble</span></p>
+      </div>
+      <div class="nav-links">
+        <a href="#work" data-i18n="nav-work"><span class="lang-ru">роли</span><span class="lang-en">credits</span></a>
+        <a href="#gallery" data-i18n="nav-gallery"><span class="lang-ru">галерея</span><span class="lang-en">gallery</span></a>
+        <a href="#interests" data-i18n="nav-interests"><span class="lang-ru">интересы</span><span class="lang-en">essence</span></a>
+        <a href="#contact" data-i18n="nav-contact"><span class="lang-ru">контакты</span><span class="lang-en">contact</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="role-badge"><span class="lang-ru">Санкт-Петербург, Россия</span><span class="lang-en">Saint Petersburg, Russia</span></div>
+          <h1><span class="lang-ru">Главные роли<br>и глубина массовки</span><span class="lang-en">Lead &<br>Crowd Depth</span></h1>
+          <div class="bio-short">
+            <span class="lang-ru">Гаврилец Бодан Максимович — актёр из Санкт-Петербурга. Выразительная харизма для главных ролей и органичная достоверность в массовых сценах. Работал на интернациональных проектах.</span>
+            <span class="lang-en">Bodan Gavrilets — powerful screen presence from Saint Petersburg, Russia. Protagonist intensity and authentic ensemble texture. International credits from Uruguay to Moscow.</span>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item"><span class="stat-number">170 см</span><br><span class="lang-ru">рост</span><span class="lang-en">height</span></div>
+            <div class="stat-item"><span class="stat-number">18+</span><br><span class="lang-ru">фото в портфолио</span><span class="lang-en">portfolio shots</span></div>
+            <div class="stat-item"><span class="stat-number">2026</span><br><span class="lang-ru">стиль</span><span class="lang-en">style</span></div>
+          </div>
+          <a href="#gallery" class="btn-outline"><span class="lang-ru">смотреть архив →</span><span class="lang-en">visual archive →</span></a>
+        </div>
+        <div class="hero-image-placeholder" style="background-image: url('https://placehold.co/900x700/0f6b8c/ffffff?text=BODAN+GAVRILETS'); background-size: cover; background-position: center 20%;"></div>
+      </div>
+    </div>
+
+    <section id="work">
+      <div class="container">
+        <h2><span class="lang-ru">ключевые работы</span><span class="lang-en">selected works</span></h2>
+        <div class="credits-grid">
+          <div class="credit-card">
+            <h3>Уругвай · сериал</h3>
+            <p><span class="lang-ru">Массовка в международной копродукции. Съёмки в Монтевидео, драматическая арка персонажа.</span><span class="lang-en">Lead role in international co-production. Filmed in Montevideo, dramatic character arc.</span></p>
+          </div>
+          <div class="credit-card">
+            <h3>«Тренер» (фильм)</h3>
+            <p><span class="lang-ru">Массовка, сцены стадиона и атмосферные планы. Работа с главным актёрским составом.</span><span class="lang-en">Crowd / extra — stadium sequences. Work alongside main cast.</span></p>
+          </div>
+          <div class="credit-card">
+            <h3>Coca-Cola · реклама</h3>
+            <p><span class="lang-ru">Главная роль, Уругвайская кампания, lifestyle съёмка. Энергичный образ на ТВ и digital.</span><span class="lang-en">National campaign, lifestyle commercial. Energetic presence across CIS.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <h2><span class="lang-ru">18 кадров · максимальное разрешение</span><span class="lang-en">18 frames · max resolution</span></h2>
+        <div class="mosaic-grid" id="dynamicGallery"></div>
+        <p style="margin-top: 32px; text-align: center; font-weight:300; font-size:0.8rem; color:var(--light-text);"><span class="lang-ru">шахматная мозаика · локальные фото из папки port/</span><span class="lang-en">chessboard mosaic · local images from /port folder</span></p>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container">
+        <h2><span class="lang-ru">за пределами кадра</span><span class="lang-en">beyond the frame</span></h2>
+        <div class="interests-wrapper">
+          <div class="interests-list">
+            <!-- FIXED: each interest is properly wrapped in .interest-item with consistent styling -->
+            <div class="interest-item">
+              <a href="http://t.me/kotnaoborots" class="lang-ru">искусство</a>
+              <a href="http://t.me/kotnaoborots" class="lang-en">art</a>
+            </div>
+            <div class="interest-item">
+              <a href="https://setka.ru/users/019d094b-8983-7d62-84cd-4d4e63f6844e" class="lang-ru">технологии</a>
+              <a href="https://setka.ru/users/019d094b-8983-7d62-84cd-4d4e63f6844e" class="lang-en">technology</a>
+            </div>
+            <div class="interest-item">
+              <a href="https://vk.com/club238777372" class="lang-ru">активный образ жизни</a>
+              <a href="https://vk.com/club238777372" class="lang-en">active lifestyle</a>
+            </div>
+          </div>
+          <div class="height-badge">170 cm · 70 kg <span class="lang-ru">рост и вес</span><span class="lang-en">height & weight</span></div>
+        </div>
+        <div style="margin-top: 40px; font-weight: 300; line-height: 1.5; background: var(--pale-blue); padding: 30px; border-radius: 32px;">
+          <p><span class="lang-ru">Искусство, технологии и постоянное движение — моя энергия. Каждую роль, главную или эпизодическую, я наполняю современной чувствительностью и правдой. Читаю, пишу - прозу стихи и сценарии. За пределами съёмочной площадки я увлекаюсь цифровым искусством, новыми медиа и держу тело в тонусе.</span>
+          <span class="lang-en">Art, technology and movement define my daily energy. Every role — lead or supporting — gets contemporary sensitivity. I read and write - prose, poetry, and screenplays. Away from the film set, I'm into digital art, new media, and staying physically fit.</span></p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" style="border-bottom: none;">
+      <div class="container">
+        <h2><span class="lang-ru">контакты & связь</span><span class="lang-en">contact & representation</span></h2>
+        <div class="contact-block">
+          <div class="contact-info">
+            <p><strong><span class="lang-ru">телефон</span><span class="lang-en">phone</span>:</strong> +7 992 348-1791</p>
+            <p><strong>Email:</strong> gavriletsb@yandex.com</p>
+            <p><strong><span class="lang-ru">Сейчас в</span><span class="lang-en">based</span>:</strong> <span class="location-badge">Санкт-Петербург, Россия / Saint Petersburg, Russia</span></p>
+          </div>
+          <div style="font-weight: 300;">
+            <p><span class="lang-ru">Открыт для кастингов, театра и кино</span><span class="lang-en">open for castings, theatre & film</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Гаврилец Бодан Максимович · <span class="lang-ru">актёрское портфолио</span><span class="lang-en">actor portfolio</span> · Санкт-Петербург</p>
+      <p style="margin-top: 8px;"><span class="lang-ru">2026</span><span class="lang-en">2026</span></p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ----------------------------------------------
+      // GALLERY: load 18 images from LOCAL FOLDER "port/"
+      // naming: 1.png, 2.png ... 18.png (auto fallback to numbered placeholder if missing)
+      // ----------------------------------------------
+      const galleryContainer = document.getElementById('dynamicGallery');
+      if (galleryContainer) {
+        galleryContainer.innerHTML = ''; // clear any potential placeholder content
+        const totalImages = 18;
+        
+        for (let i = 1; i <= totalImages; i++) {
+          const div = document.createElement('div');
+          div.className = 'mosaic-item';
+          const img = document.createElement('img');
+          // LOCAL PATH: port/1.png ... port/18.png
+          const localImagePath = `port/${i}.png`;
+          // set src to local path; if image fails to load, we keep it as is (browser shows broken icon)
+          // we also add onerror fallback to a high-quality placeholder to keep gallery robust.
+          img.src = localImagePath;
+          img.alt = `Bodan Gavrilets portfolio shot ${i}`;
+          img.loading = 'lazy';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          
+          // Optional: fallback to a stylish subtle placeholder if local file missing
+          img.onerror = function() {
+            // If local image not found, use a subtle blue-toned placeholder with index number
+            // This ensures gallery never looks broken, but still encourages user to put real images.
+            if (!img.hasAttribute('data-fallback')) {
+              img.setAttribute('data-fallback', 'true');
+              // Use elegant minimal placeholder with SVG / data-url
+              const svgPlaceholder = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='100%25' height='100%25' fill='%23c3e2f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-size='22' fill='%230f6b8c' font-weight='300'%3E${i}%3C/text%3E%3C/svg%3E`;
+              img.src = svgPlaceholder;
+            }
+          };
+          
+          img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Open full resolution image in new tab if it's a real image, else just show placeholder info
+            if (img.src && !img.src.includes('data:image/svg+xml')) {
+              window.open(img.src, '_blank');
+            } else {
+              // hint: no actual image yet
+              console.log(`Placeholder ${i} — add your photo at ${localImagePath}`);
+            }
+          });
+          div.appendChild(img);
+          galleryContainer.appendChild(div);
+        }
+      }
+
+      // bilingual switcher logic (smooth)
+      const btnRu = document.getElementById('btn-ru');
+      const btnEn = document.getElementById('btn-en');
+      const root = document.body;
+
+      function setLanguage(lang) {
+        root.setAttribute('data-lang', lang);
+        if(lang === 'ru') {
+          btnRu.classList.add('active');
+          btnEn.classList.remove('active');
+        } else {
+          btnEn.classList.add('active');
+          btnRu.classList.remove('active');
+        }
+        // optionally save preference to localStorage
+        localStorage.setItem('actor-lang', lang);
+      }
+      
+      // load saved language preference
+      const savedLang = localStorage.getItem('actor-lang');
+      if (savedLang && (savedLang === 'ru' || savedLang === 'en')) {
+        setLanguage(savedLang);
+      } else {
+        // default to ru
+        setLanguage('ru');
+      }
+      
+      if (btnRu && btnEn) {
+        btnRu.addEventListener('click', () => setLanguage('ru'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+      }
+      
+      // Additional small fix: ensure that any inline links inside interest-item have proper hover state
+      // already fixed via CSS .interest-item:hover
+      
+      // Small console note: remind about port folder
+      console.log('✅ Gallery ready: expecting 18 images in /port/ folder (1.png ... 18.png). Place your high-res actor photos there.');
+    })();
+  </script>
+</body>
+</html>
